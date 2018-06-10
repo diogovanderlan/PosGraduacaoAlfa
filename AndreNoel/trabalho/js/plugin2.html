@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Criando Plugins JQuery</title>
+	<script src='jquery/jquery-3.3.1.min.js'></script>
+	<script>
+		$(document).ready(function(){
+			(function($){				
+				$.fn.alteracao = function(){
+					texto = this.text();
+					texto = texto.replace(/e/gi, 'enter').replace(/i/gi, 'inis').replace(/o/gi, 'omber').replace(/u/gi, 'ufter').replace(/a/gi, 'ais');
+					$('<p>'+texto+'</p>').insertAfter(this);
+					return this;
+				};
+				$('#texto').alteracao();
+			}(jQuery));
+		});
+	</script>
+</head>
+<body>
+<p id="texto">Diogo vanderlan</p>
+</body>
+</html>

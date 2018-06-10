@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Diogo Vanderlan</title>
+	<meta charset="utf-8">
+	
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="css/fotorama.css">
+	<link rel="stylesheet" type="text/css" href="touchTouch/touchTouch.css">
+</head>
+<body>
+	<span id='topo'></span>
+<header>
+	<nav>
+			<a href="index.html	" title="Home" class="logo">
+				<img src="images/logo.jpg" title="vanderlan" alt="Vanderlan">
+			</a>
+
+			
+
+			<ul class="parent">
+			<li><a href="index.html">Pagina Inicial</a></li>
+			<li><a>Produtos</a>
+				<ul class="child">
+					<li><a href="pereciveis.html">Pereciveis</a></li>
+					<li><a href="naopereciveis.html">Nao Pereciveis</a></li>
+				</ul>
+			</li>
+			<li><a href="cadastro.html">Cadastro</a></li>
+			<li><a href="empresa.html">Quem Somos</a></li>
+			<li><a href="https://www.linkedin.com/in/diogovanderlan/">Contato</a></li>
+
+		</ul>
+		</nav>
+</header>
+
+	<div class="clear"></div>
+<main id="main">
+	<div class="fotorama" data-loop="true" data-autoplay="true" id="banner">
+      <img src="images/foto1.jpg" alt="foto">
+      <img src="images/foto2.jpg" alt="foto">
+      <img src="images/foto3.jpg" alt="foto">
+    </div> <!-- banners -->
+
+   
+
+
+	<ul class="gerar">
+        <h5>Letras</h5>
+        <li>d</li>
+        <li>i</li>
+        <li>o</li>
+        <li>g</li>
+        <li>o</li>
+        </ul>
+        <ul id="gerados">
+          <h5>Textos gerados</h5>
+    </ul>
+
+</main>
+<footer>
+    <strong>Trabalho de Desenvolvimento Web com jQuery</strong>
+    <p>Diogo vanderlan</p>
+  </footer>
+
+
+
+
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="touchTouch/touchTouch.jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.mask.min.js"/></script>
+	<script src="js/fotorama.js"></script>
+	<script type="text/javascript" src="js/simple-menu.js"></script>
+	<script src="js/infiniteSlider2.js"></script>
+	<script src="js/call.js"></script>
+	
+	<script>
+
+		// plugin gerar textos
+  $.fn.geraTexto = function(){
+    var palavra = '';
+    $('.gerar li').each(function(){
+      var letra = $(this).html();
+      if(letra == 'D'){
+        palavra = 'diogo';
+      }else if(letra == 'i'){
+        palavra = 'inclivel';
+      }else if(letra == 'o'){
+        palavra = 'ombro';
+      }else if(letra == 'g'){
+        palavra = 'gato';
+      }else if(letra == 'o'){
+        palavra = 'ombro';
+      }
+      $('<li>'+palavra+'</li>').appendTo('#gerados');
+    });
+  }
+  $('.gerar li').geraTexto();
+
+  // plugin legenda
+  $.fn.altLegenda = function(){
+    $('.gera-legenda').each(function(){
+      var legenda = $(this).attr('alt');
+      $(this).next('.legenda').html(legenda);
+    });
+  }
+  $('.gera-legenda').altLegenda();
+
+ </script>
+
+<button class="top"> <a href='#topo'>topo</a></button>
+</body>
+</html>
